@@ -1,0 +1,23 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SuperCalculator", "SuperCalculator\SuperCalculator.csproj", "{3D77BF1A-892B-4EE6-895D-63CC7ADB39AC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Library", "Library\Library.csproj", "{B72CBE37-3698-417C-A7EC-CC8C93D4259A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3D77BF1A-892B-4EE6-895D-63CC7ADB39AC}.Debug|x86.ActiveCfg = Debug|x86
+		{3D77BF1A-892B-4EE6-895D-63CC7ADB39AC}.Debug|x86.Build.0 = Debug|x86
+		{3D77BF1A-892B-4EE6-895D-63CC7ADB39AC}.Release|x86.ActiveCfg = Release|x86
+		{3D77BF1A-892B-4EE6-895D-63CC7ADB39AC}.Release|x86.Build.0 = Release|x86
+		{B72CBE37-3698-417C-A7EC-CC8C93D4259A}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{B72CBE37-3698-417C-A7EC-CC8C93D4259A}.Debug|x86.Build.0 = Debug|Any CPU
+		{B72CBE37-3698-417C-A7EC-CC8C93D4259A}.Release|x86.ActiveCfg = Release|Any CPU
+		{B72CBE37-3698-417C-A7EC-CC8C93D4259A}.Release|x86.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
