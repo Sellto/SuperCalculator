@@ -1,8 +1,13 @@
 ﻿using System;
-namespace MyCommand
+using Computer;
+
+namespace Computer.MyCommand
 {
-	abstract class Command
+	public abstract class Command : Computer
 	{
-		public abstract string Execute();
+		public abstract string Name
+		{get;}
+
+		public abstract double Execute(string[] input);
 	}
 }

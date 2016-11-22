@@ -1,39 +1,42 @@
 ﻿using System;
 
-namespace MyCommand
+namespace Computer.MyCommand
 {
 	class sin : Command
 	{
-		private string input;
-		public sin(string input)
+		public override string Name
 		{
-			this.input = input; 
+			get { return "Sinus";}
 		}
-
-		public override string Execute()
+		public override double Execute(string[] input)
 		{
-			double result = Math.Sin(Int32.Parse(input) * Math.PI / 180.0);
-			return result.ToString();
+			return Math.Round(Math.Sin(Int32.Parse(input[1]) * Math.PI / 180), 2) ;
 		}
 
 	}
-}
 
-
-namespace MyCommand
-{
 	class cos : Command
 	{
-		private string input;
-		public cos(string input)
+		public override string Name
 		{
-			this.input = input;
+			get { return "Cosinus"; }
+		}
+		public override double Execute(string[] input)
+		{
+			return Math.Round(Math.Cos(Int32.Parse(input[1]) * Math.PI / 180), 2);
 		}
 
-		public override string Execute()
+	}
+
+	class tan : Command
+	{
+		public override string Name
 		{
-			double result = Math.Cos(Int32.Parse(input) * Math.PI / 180.0);
-			return result.ToString();
+			get { return "Tangent"; }
+		}
+		public override double Execute(string[] input)
+		{
+			return Math.Round(Math.Tan(Int32.Parse(input[1]) * Math.PI / 180), 2);
 		}
 
 	}

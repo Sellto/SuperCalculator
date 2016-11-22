@@ -10,7 +10,6 @@ namespace SuperCalculator
 			try
 			{
 				Assembly myLib = Assembly.LoadFrom("../../Library.dll");
-				//ShowLibrary(myLib);
 				bool escape = false;
 				while (!escape)
 				{
@@ -18,18 +17,19 @@ namespace SuperCalculator
 					string input = Console.ReadLine();
 					if (input != "quit")
 					{
-						char[] whitespace = new char[] { ' ', '\t' };
+						var whitespace = new char[] { ' ', '\t' };
 						string[] input_element = input.Split(whitespace);
 						try
 						{
-							Type type = myLib.GetType("MyCommand." + input_element[0]);
-							Object command = Activator.CreateInstance(type, new Object[] {input_element[1]});
-							string output = (string)type.InvokeMember("Execute", BindingFlags.InvokeMethod, null, command, new Object[] { });
+							Type type = myLib.GetType("Computer.MyCommand." + input_element[0]);
+							Object command = Activator.CreateInstance(type, new Object[]{});
+							var output = (double)type.InvokeMember("Execute", BindingFlags.InvokeMethod, null, command, new Object[] {input_element});
 							Console.WriteLine(" = " + output);
 						}
-						catch
+						catch(Exception)
 						{
-							Console.WriteLine("Command Not Found");
+							Console.WriteLine("Invalid Command --- Look below the available command and the their parameters");
+							Help(myLib);
 						}
 					}
 					else
@@ -44,16 +44,11 @@ namespace SuperCalculator
 			}
 		}
 
-		public static void ShowLibrary(Assembly assembly)
+		public static void Help(Assembly assembly)
 		{ 
-			Console.WriteLine("Commande disponible :");
 			foreach (Type type in assembly.GetTypes())
 			{
 				Console.WriteLine(" - " + type);
-				foreach (MemberInfo member in type.GetMembers())
-				{
-					Console.WriteLine(" ----- " + member.Name);
-				}
 
 			}
 		}
