@@ -10,7 +10,16 @@ namespace Computer.MyCommand
 		}
 		public override double Execute(string[] input)
 		{
-			return Math.Round(Math.Sin(Int32.Parse(input[1]) * Math.PI / 180), 2) ;
+			var angle = new int();
+			try
+			{
+				angle = Int32.Parse(input[1]);
+			}
+			catch
+			{
+				throw new Exception("Angle in sin command must be a integer");
+			}
+			return Math.Round(Math.Sin(angle * Math.PI / 180), 2);
 		}
 
 	}
@@ -23,7 +32,16 @@ namespace Computer.MyCommand
 		}
 		public override double Execute(string[] input)
 		{
-			return Math.Round(Math.Cos(Int32.Parse(input[1]) * Math.PI / 180), 2);
+			var angle = new int();
+			try
+			{
+				angle = Int32.Parse(input[1]);
+			}
+			catch
+			{
+				throw new Exception("Angle in cos command must be a integer");
+			}
+			return Math.Round(Math.Cos(angle * Math.PI / 180), 2);
 		}
 
 	}
@@ -36,8 +54,25 @@ namespace Computer.MyCommand
 		}
 		public override double Execute(string[] input)
 		{
-			return Math.Round(Math.Tan(Int32.Parse(input[1]) * Math.PI / 180), 2);
+			var angle = new int();
+			try
+			{
+				angle = Int32.Parse(input[1]);
+			}
+			catch
+			{
+				throw new Exception("Angle in tan command must be a integer");
+			}
+			return Math.Round(Math.Tan(angle * Math.PI / 180), 2);
 		}
 
+	}
+
+	class cotan : Command
+	{
+		public override string Name
+		{
+			get { return "Cotangent"; }
+		}
 	}
 }

@@ -10,15 +10,22 @@ namespace Computer.MyCommand
 		}
 		public override double Execute(string[] input)
 		{
-			int max = Int32.Parse(input[1]);
-			for (int i = 2; i < input.Length; i++)
+			try
 			{
-				if (Int32.Parse(input[i]) > max)
+				int max = Int32.Parse(input[1]);
+				for (int i = 2; i < input.Length; i++)
 				{
-					max = Int32.Parse(input[i]);
+					if (Int32.Parse(input[i]) > max)
+					{
+						max = Int32.Parse(input[i]);
+					}
 				}
+				return max;
 			}
-			return max;
+			catch
+			{
+				throw new Exception("Check if all of parameters are integer");
+			}
 		}
 	}
 
@@ -30,15 +37,22 @@ namespace Computer.MyCommand
 		}
 		public override double Execute(string[] input)
 		{
-			int min = Int32.Parse(input[1]);
-			for (int i = 2; i < input.Length; i++)
+			try
 			{
-				if (Int32.Parse(input[i]) < min)
+				int min = Int32.Parse(input[1]);
+				for (int i = 2; i < input.Length; i++)
 				{
-					min = Int32.Parse(input[i]);
+					if (Int32.Parse(input[i]) < min)
+					{
+						min = Int32.Parse(input[i]);
+					}
 				}
+				return min;
 			}
-			return min;
+			catch
+			{
+				throw new Exception("Check if all of parameters are integer");
+			}
 		}
 	}
 }

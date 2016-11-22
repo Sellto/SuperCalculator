@@ -23,13 +23,23 @@ namespace SuperCalculator
 						{
 							Type type = myLib.GetType("Computer.MyCommand." + input_element[0]);
 							Object command = Activator.CreateInstance(type, new Object[]{});
-							var output = (double)type.InvokeMember("Execute", BindingFlags.InvokeMethod, null, command, new Object[] {input_element});
-							Console.WriteLine(" = " + output);
+							try
+							{
+								var output = (double)type.InvokeMember("Execute", BindingFlags.InvokeMethod, null, command, new Object[] { input_element });
+								Console.WriteLine(" = " + output);
+							}
+							catch (Exception e)
+							{
+								Console.ForegroundColor = ConsoleColor.Red;
+								e = e.InnerException;
+								Console.WriteLine("\n"+e.Message+"\n");
+								Console.ResetColor();
+							}
+
 						}
-						catch(Exception)
+						catch
 						{
-							Console.WriteLine("Invalid Command --- Look below the available command and the their parameters");
-							Help(myLib);
+							Console.WriteLine("Invalid Command");
 						}
 					}
 					else

@@ -8,6 +8,9 @@ namespace Computer.MyCommand
 		public abstract string Name
 		{get;}
 
-		public abstract double Execute(string[] input);
+		public virtual double Execute(string[] input)
+		{
+			throw new Exception("This Command exist but not action are implemented");
+		}
 	}
 }
