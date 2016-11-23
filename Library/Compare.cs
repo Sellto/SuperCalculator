@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 
 namespace Computer.MyCommand
 {
@@ -10,6 +11,7 @@ namespace Computer.MyCommand
 		}
 		public override double Execute(string[] input)
 		{
+			input = input.Where(item => item != "").ToArray();
 			try
 			{
 				int max = Int32.Parse(input[1]);
@@ -37,6 +39,8 @@ namespace Computer.MyCommand
 		}
 		public override double Execute(string[] input)
 		{
+
+			input = input.Where(item => item != "").ToArray();
 			try
 			{
 				int min = Int32.Parse(input[1]);
